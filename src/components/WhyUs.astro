@@ -1,0 +1,25 @@
+---
+const items = [
+  { icon: '⚙️', title: 'Advanced Technology', desc: 'Imported high-precision master machines, improving manufacturing precision from the source.' },
+  { icon: '🏆', title: 'Brand Components', desc: 'Core components from world-renowned brands, ensuring reliable and durable configuration.' },
+  { icon: '🛠️', title: 'Service System', desc: 'Continuous overseas technical support and after-sales service for the entire equipment lifecycle.' },
+  { icon: '🌍', title: 'International Certification', desc: 'Over 30 patents and various certifications. All products are ISO 9001 certified.' }
+];
+---
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-700 mb-3">Why Choose Hardford</h2>
+      <p class="text-gray-600">Cooperation with leading state-owned enterprises in military, aviation, aerospace and semiconductor industries</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map(i => (
+        <div class="p-6 border border-gray-200 rounded-lg hover:border-brand-500 transition">
+          <div class="text-4xl mb-3">{i.icon}</div>
+          <h3 class="font-bold text-brand-700 mb-2">{i.title}</h3>
+          <p class="text-sm text-gray-600">{i.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

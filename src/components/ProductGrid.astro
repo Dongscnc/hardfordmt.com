@@ -1,0 +1,54 @@
+---
+const categories = [
+  {
+    name: 'Horizontal Turning Center',
+    desc: 'High rigidity, stable machining of long shafts / heavy workpieces, high precision, high productivity.',
+    models: ['TCK52', 'TCK600', 'TCK1000']
+  },
+  {
+    name: 'Multi-axis Turning Center',
+    desc: 'Machining of complex high-precision parts in one setup, eliminating multi-clamping errors, doubling productivity.',
+    models: ['TCK52D', 'TCK600DY', 'TCK800DY']
+  },
+  {
+    name: 'Multi-function Turning Center',
+    desc: 'Single-cycle machining of complex geometries. Formed surfaces in one pass, ideal for multi-class production.',
+    models: ['DTM2000S', 'DVM3000', 'VTC1010']
+  },
+  {
+    name: 'Flat-Bed CNC Lathe',
+    desc: 'Specially designed for pipe & thread machining. High thread-forming precision, stable gripping of long workpieces.',
+    models: ['QK1327', 'CK84160', 'CK84100']
+  }
+];
+---
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-700 mb-3">Product Catalog</h2>
+      <p class="text-gray-600">Full range of CNC turning centers for industrial applications</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {categories.map(cat => (
+        <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition">
+          <div class="placeholder-img h-56">[ {cat.name} Hero Image ]</div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-brand-700 mb-2">{cat.name}</h3>
+            <p class="text-gray-600 text-sm mb-4">{cat.desc}</p>
+            <div class="space-y-3">
+              {cat.models.map(model => (
+                <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="placeholder-img w-12 h-12">[img]</div>
+                    <span class="font-medium">{model}</span>
+                  </div>
+                  <a href={`/products/${model.toLowerCase()}`} class="text-brand-accent text-sm font-semibold hover:underline">Details →</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

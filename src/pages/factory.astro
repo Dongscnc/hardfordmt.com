@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+const gallery = ['Aerial View','Workshop Floor','Assembly Line','Quality Inspection','Finished Goods','Machining Center','Painting Booth','Loading Bay','Control Panel'];
+---
+<BaseLayout title="Factory | Hardford">
+  <PageTitle title="Factory" breadcrumb={[{label:'Home', href:'/'},{label:'Factory'}]} />
+  <AnchorNav active="factory" />
+  <section class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="text-gray-800 max-w-3xl mx-auto text-center mb-10 font-medium">40-acre modern manufacturing facility with imported high-precision master machines, strict quality control, and 5 dedicated assembly lines.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {gallery.map(g => (
+          <div class="placeholder-img aspect-[4/3] border-2 border-navy hover:opacity-90 transition shadow-md">[ {g} ]</div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <InquiryForm />
+</BaseLayout>

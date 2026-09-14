@@ -1,0 +1,25 @@
+---
+const groups = [
+  { label: 'CNC System',         items: 'HEIDENHAIN / FANUC / SIEMENS / SYNTEC / GSK' },
+  { label: 'Ball Screw / Bearing',items: 'THK BALL SCREWS / NSK / NACHI Bearing' },
+  { label: 'Linear Scale',        items: 'Heidenhain Grating Scale' },
+];
+---
+<section class="py-16 bg-gray-100 border-y border-gray-300">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-3">Core Components from World Brands</h2>
+      <p class="text-gray-700 max-w-3xl mx-auto">Main components sourced from globally trusted manufacturers, ensuring reliable configuration and long service life.</p>
+    </div>
+    <div class="bg-white border-2 border-navy shadow-lg divide-y-2 divide-gray-200">
+      {groups.map(g => (
+        <div class="flex items-center gap-4 p-5 hover:bg-gray-50 transition">
+          <span class="text-accent text-2xl">●</span>
+          <span class="font-bold text-navy uppercase tracking-wider text-lg w-48 shrink-0">{g.label}:</span>
+          <span class="text-gray-800 font-medium">{g.items}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

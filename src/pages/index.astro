@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import IntroText from '../components/IntroText.astro';
+import StatsBar from '../components/StatsBar.astro';
+import ProductSection from '../components/ProductSection.astro';
+import WarrantyBar from '../components/WarrantyBar.astro';
+import BrandList from '../components/BrandList.astro';
+import FeatureGrid4 from '../components/FeatureGrid4.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="Hardford | CNC Machine Tools Manufacturer">
+  <HeroCarousel />
+  <IntroText />
+  <StatsBar />
+  <ProductSection title="Horizontal Lathe Center" tagline="High rigidity, stable machining of long shafts and heavy workpieces, high precision and high productivity." models={['TCK52','TCK600','TCK1000']} bg="bg-gray-soft" />
+  <ProductSection title="Multi-Axis Lathe Center" tagline="Machining of complex high-precision parts in one setup, eliminating multi-clamping errors, doubling productivity." models={['TCK52D','TCK600DY','TCK800DY']} bg="bg-white" />
+  <ProductSection title="Multi-Function Lathe Center" tagline="Single-cycle machining of complex geometries. Formed surfaces in one pass, ideal for multi-class production." models={['DTM2000S','DVM3000','VTC1010']} bg="bg-gray-soft" />
+  <ProductSection title="CNC Flat-Bed Lathe" tagline="Specially designed for pipe and thread machining. High thread-forming precision, stable gripping of long workpieces." models={['QK1327','CK84160','CK84100']} bg="bg-white" />
+  <WarrantyBar />
+  <BrandList />
+  <FeatureGrid4 title="DONGS CNC" subtitle="Hardford cooperates with leading state-owned enterprises and public companies in military, aviation, aerospace and semiconductor industries." />
+  <InquiryForm />
+</BaseLayout>

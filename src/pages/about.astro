@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import StatsBar from '../components/StatsBar.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="About Company | Hardford">
+  <PageTitle title="About Company" subtitle="Hardford CNC Equipment Co., Ltd." breadcrumb={[{label:'Home', href:'/'},{label:'About'}]} />
+  <AnchorNav active="about" />
+  <section class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-[55%_45%] gap-12 items-center">
+      <div>
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide mb-4">Hardford CNC Equipment Co., Ltd.</h3>
+        <p class="text-gray-800 leading-relaxed mb-4 font-medium">Hardford specializes in the manufacturing, sales and service of CNC machine tools. We have 40 years of CNC machine manufacturing experience and a 40-acre modern production facility.</p>
+        <p class="text-gray-700 leading-relaxed mb-4">Imported high-precision master machines enable us to improve manufacturing precision from the very source. We implement strict quality control at every stage to guarantee machining accuracy and operational stability.</p>
+        <p class="text-gray-700 leading-relaxed">We have applied for over 30 patents and certifications. Our products are exported to 56 countries and regions worldwide, providing full lifecycle service support.</p>
+      </div>
+      <div class="placeholder-img aspect-[4/3] border-4 border-navy shadow-xl">[ Factory Overview ]</div>
+    </div>
+  </section>
+  <section class="py-10 bg-gray-100 border-y border-gray-300">
+    <div class="max-w-3xl mx-auto px-4 space-y-3">
+      {['ISO 9001 international quality certified','40 years of CNC machine tool manufacturing experience','Over 30 patents and certifications granted','Products exported to 56 countries worldwide'].map(t => (
+        <div class="flex items-start gap-3 bg-white border-l-4 border-accent p-3 shadow-sm">
+          <span class="text-accent text-xl mt-0.5 font-bold">✓</span>
+          <span class="text-gray-800 font-medium">{t}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+  <StatsBar />
+  <section class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-100 border-t-4 border-accent p-8 shadow-lg">
+        <div class="placeholder-img aspect-[16/9] mb-4 border-2 border-navy">[ Customer Service ]</div>
+        <h3 class="text-xl font-extrabold text-navy uppercase tracking-wide mb-2">Customer Service</h3>
+        <p class="text-gray-700 text-sm">Continuous overseas technical support and after-sales service for the entire equipment lifecycle.</p>
+      </div>
+      <div class="bg-gray-100 border-t-4 border-accent p-8 shadow-lg">
+        <div class="placeholder-img aspect-[16/9] mb-4 border-2 border-navy">[ Certificates ]</div>
+        <h3 class="text-xl font-extrabold text-navy uppercase tracking-wide mb-2">Certificates</h3>
+        <p class="text-gray-700 text-sm">Over 30 patents and various certifications. All products are ISO 9001 certified.</p>
+      </div>
+    </div>
+  </section>
+  <InquiryForm />
+</BaseLayout>

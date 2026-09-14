@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import ContactCards from '../components/ContactCards.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="Contact Us | Hardford">
+  <PageTitle title="Contacts" breadcrumb={[{label:'Home', href:'/'},{label:'Contacts'}]} />
+  <ContactCards />
+  <section class="py-10 bg-gray-100 border-y border-gray-300">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="placeholder-img aspect-[21/9] border-4 border-navy shadow-xl">[ Map Location ]</div>
+    </div>
+  </section>
+  <InquiryForm />
+</BaseLayout>

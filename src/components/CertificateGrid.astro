@@ -1,0 +1,20 @@
+---
+const certs = ['ISO 9001','CE Mark','ISO 14001','OHSAS 18001','Patent 1','Patent 2','Patent 3','Patent 4','Patent 5','Patent 6','Patent 7','Patent 8'];
+---
+<section class="py-16 bg-white border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-3">Certificates & Patents</h2>
+      <p class="text-gray-700">Over 30 patents and international certifications</p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {certs.map(c => (
+        <div class="bg-white border-2 border-gray-300 hover:border-accent hover:shadow-xl transition cursor-pointer overflow-hidden">
+          <div class="placeholder-img aspect-square border-b-2 border-accent/50">[ {c} ]</div>
+          <div class="bg-navy text-white text-center text-xs font-bold py-2 uppercase tracking-wider">{c}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

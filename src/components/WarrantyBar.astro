@@ -1,0 +1,21 @@
+---
+---
+<section class="relative py-16 border-y-4 border-accent overflow-hidden">
+  <div class="absolute inset-0 placeholder-img bg-gradient-to-r from-navy via-navy-light to-navy opacity-95"></div>
+  <div class="absolute inset-0 opacity-10">
+    <div class="placeholder-img h-full bg-gradient-to-br from-accent/20 to-transparent">[ Service Pattern Background ]</div>
+  </div>
+  <div class="relative max-w-5xl mx-auto px-4 text-center text-white">
+    <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+    <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-wide mb-4">We Provide Warranty On All Products</h2>
+    <p class="text-gray-200 mb-8 text-lg">Consulting and technical support throughout the entire equipment lifetime</p>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-10 text-sm md:text-base">
+      {[{i:'✓',t:'Technical Advice'},{i:'✓',t:'Installation & Commissioning'},{i:'✓',t:'Machine Repair'}].map(s => (
+        <div class="flex items-center gap-2 bg-black/40 px-5 py-3 border border-accent/50">
+          <span class="text-accent text-xl font-bold">{s.i}</span>
+          <span class="font-semibold">{s.t}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

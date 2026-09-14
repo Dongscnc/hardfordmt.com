@@ -1,0 +1,20 @@
+---
+import ProductCard from './ProductCard.astro';
+const { title, tagline, models, bg = 'bg-gray-100' } = Astro.props;
+---
+<section class={`py-16 ${bg} border-y border-gray-200`}>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h3 class="text-2xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-3">{title}</h3>
+      {tagline && <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">{tagline}</p>}
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 border border-gray-300 bg-white shadow-lg">
+      {models.map((m: string, i: number) => (
+        <div class={i < models.length - 1 ? 'border-r border-gray-300' : ''}>
+          <ProductCard model={m} href={`/products/${m.toLowerCase()}`} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

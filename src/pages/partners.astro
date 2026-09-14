@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import BrandLogoGrid from '../components/BrandLogoGrid.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="Our Partners | Hardford">
+  <PageTitle title="Our Partners" breadcrumb={[{label:'Home', href:'/'},{label:'Partners'}]} />
+  <AnchorNav active="partners" />
+  <BrandLogoGrid />
+  <InquiryForm />
+</BaseLayout>

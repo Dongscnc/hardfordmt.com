@@ -1,0 +1,24 @@
+---
+const { active } = Astro.props;
+const links = [
+  { id: 'about',       href: '/about',         label: 'About' },
+  { id: 'factory',     href: '/factory',       label: 'Factory' },
+  { id: 'partners',    href: '/partners',      label: 'Partners' },
+  { id: 'certificates', href: '/certificates', label: 'Certificates' },
+  { id: 'support',     href: '/after-sales',   label: 'Support' },
+  { id: 'faq',         href: '/faq',           label: 'FAQ' },
+];
+---
+<nav class="sticky top-[110px] z-30 bg-navy border-b-4 border-accent">
+  <div class="max-w-7xl mx-auto px-4">
+    <ul class="flex overflow-x-auto divide-x divide-accent/30">
+      {links.map(l => (
+        <li>
+          <a href={l.href} class={`block px-5 py-3 text-sm whitespace-nowrap font-bold uppercase tracking-wider transition border-b-4 ${active === l.id ? 'text-white bg-accent border-accent-dark' : 'text-gray-300 border-transparent hover:text-white hover:bg-navy-light'}`}>
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

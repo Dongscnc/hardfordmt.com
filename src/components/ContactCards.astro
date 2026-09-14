@@ -1,0 +1,20 @@
+---
+const cards = [
+  { icon: '📍', title: 'Address', content: 'Shandong Province, China' },
+  { icon: '✉️', title: 'Email',   content: 'info@hardfordmt.com' },
+  { icon: '📞', title: 'Contact Us', content: '+86-13371109792\nWeChat: hardford_cnc' },
+];
+---
+<section class="py-16 bg-gray-100 border-y border-gray-300">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {cards.map(c => (
+        <div class="bg-white border-t-4 border-accent shadow-lg p-8 text-center hover:shadow-2xl transition hover:-translate-y-1">
+          <div class="text-6xl mb-4 text-accent">{c.icon}</div>
+          <h3 class="text-xl font-extrabold text-navy mb-2 uppercase tracking-wide border-b-2 border-accent pb-2 inline-block px-6">{c.title}</h3>
+          <p class="text-gray-800 whitespace-pre-line leading-relaxed font-medium">{c.content}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import FeatureGrid4 from '../components/FeatureGrid4.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+const services = [
+  { icon: '🚚', title: 'Transportation',     desc: 'Worldwide shipping with professional export packing and door-to-door logistics support.' },
+  { icon: '✅', title: 'Quality Guarantee',  desc: 'Every machine passes strict QC, test-cut inspection, and ISO 9001 compliance before delivery.' },
+  { icon: '🎧', title: 'Technical Support',  desc: '24/7 remote support, on-site engineers, video diagnostics and operator training worldwide.' },
+  { icon: '⚙️', title: 'Spare Parts Supply', desc: 'Full spare parts inventory, global shipping within 7 days, and lifetime component support.' },
+];
+---
+<BaseLayout title="After-Sales Support | Hardford">
+  <PageTitle title="After-Sales Support" breadcrumb={[{label:'Home', href:'/'},{label:'Support'}]} />
+  <AnchorNav active="support" />
+  <FeatureGrid4 title="Our Services" items={services} bg="bg-white" />
+  <section class="py-14 bg-gray-100 border-y border-gray-300">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h2 class="text-2xl font-extrabold text-navy uppercase tracking-wide">Service Process</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {['Inquiry','Diagnosis','Solution','Follow-up'].map((step, i) => (
+          <div class="text-center bg-white border-t-4 border-accent p-5 shadow-lg">
+            <div class="w-16 h-16 mx-auto bg-navy text-accent rounded-full flex items-center justify-center text-2xl font-extrabold mb-3 border-2 border-accent">{i+1}</div>
+            <h3 class="font-extrabold text-navy uppercase tracking-wide">{step}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <InquiryForm />
+</BaseLayout>

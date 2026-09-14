@@ -1,0 +1,46 @@
+---
+const pathname = Astro.url.pathname;
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/products', label: 'Catalog' },
+  { href: '/about', label: 'Company' },
+  { href: '/factory', label: 'Factory' },
+  { href: '/partners', label: 'Partners' },
+  { href: '/certificates', label: 'Certificates' },
+  { href: '/after-sales', label: 'Support' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contacts' },
+];
+---
+<nav class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-3">
+      <div class="w-14 h-14 bg-navy text-white flex items-center justify-center font-extrabold text-3xl border-2 border-accent">H</div>
+      <div class="leading-tight border-l-2 border-accent pl-3">
+        <div class="font-extrabold text-2xl text-navy uppercase tracking-wider">Hardford</div>
+        <div class="text-[11px] text-gray-600 uppercase tracking-widest font-semibold">CNC Machine Tools</div>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-1 text-sm font-bold uppercase tracking-wide">
+      {navItems.map(item => (
+        <a href={item.href} class={`px-3 py-2 transition border-b-4 ${pathname === item.href ? 'text-navy border-accent' : 'text-gray-800 border-transparent hover:text-navy hover:border-accent/50'}`}>
+          {item.label}
+        </a>
+      ))}
+    </div>
+    <a href="#inquiry" class="hidden md:inline-block bg-accent hover:bg-accent-dark text-white px-5 py-3 font-extrabold text-sm uppercase tracking-wider transition border-b-4 border-accent-dark hover:border-black">
+      Request a Quote
+    </a>
+    <button id="mobile-menu-btn" class="lg:hidden text-2xl">☰</button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-accent">
+    {navItems.map(item => (
+      <a href={item.href} class="block py-2.5 px-4 border-b border-gray-200 text-sm font-bold uppercase hover:bg-navy hover:text-white">{item.label}</a>
+    ))}
+  </div>
+</nav>
+<script>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="FAQ | Hardford">
+  <PageTitle title="Q&A" breadcrumb={[{label:'Home', href:'/'},{label:'FAQ'}]} />
+  <AnchorNav active="faq" />
+  <FAQAccordion />
+  <InquiryForm />
+</BaseLayout>

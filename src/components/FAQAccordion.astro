@@ -1,0 +1,29 @@
+---
+const items = [
+  { q: 'Who are we?', a: 'Hardford is a CNC machine tool manufacturer with 40 years of experience and a 40-acre modern facility. We specialize in the design, production and global export of high-precision turning centers and lathes.' },
+  { q: 'What can you buy from us?', a: 'Horizontal turning centers, multi-axis turning centers, multi-function turning centers, CNC flat-bed lathes, horizontal 5-axis turning-milling centers, vertical 5-axis machining centers and gantry machining centers.' },
+  { q: 'How do we guarantee quality?', a: 'Every machine is built on imported high-precision master machines, undergoes strict quality control at every stage, and is certified to ISO 9001. Over 30 patents back our design integrity.' },
+  { q: 'Why buy from us?', a: '40 years of manufacturing expertise, brand-name core components (HEIDENHAIN, FANUC, SIEMENS, THK, NSK), competitive pricing, and full lifecycle after-sales support.' },
+  { q: 'What services do we provide?', a: 'Pre-sales technical consulting, on-site installation & commissioning, operator training, lifetime repair support, and global spare parts supply.' },
+];
+---
+<section class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-3">Q&A</h2>
+      <p class="text-gray-700">Quick answers to common questions</p>
+    </div>
+    <div class="border-2 border-navy bg-white shadow-lg">
+      {items.map((i, idx) => (
+        <details class={`group ${idx > 0 ? 'border-t-2 border-gray-200' : ''}`}>
+          <summary class="flex justify-between items-center py-5 px-6 cursor-pointer font-extrabold text-navy text-base md:text-lg hover:bg-gray-50 uppercase tracking-wide list-none">
+            <span>{i.q}</span>
+            <span class="text-accent text-2xl group-open:rotate-180 transition-transform">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-gray-800 leading-relaxed border-t-2 border-accent bg-gray-50">{i.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

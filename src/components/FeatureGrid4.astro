@@ -1,0 +1,28 @@
+---
+const { title = 'Why Choose Hardford', subtitle = '', items, bg = 'bg-white' } = Astro.props;
+const defaults = [
+  { icon: '⚙️', title: 'Advanced Technology', desc: 'Imported high-precision master machines, improving manufacturing precision from the source.' },
+  { icon: '🏆', title: 'Brand Components',    desc: 'Core components from world-renowned brands, ensuring reliable and durable configuration.' },
+  { icon: '🛠️', title: 'Service System',     desc: 'Continuous overseas technical support and after-sales service for the entire equipment lifecycle.' },
+  { icon: '🌍', title: 'International Certs', desc: 'Over 30 patents and various certifications. All products are ISO 9001 certified.' },
+];
+const list = items ?? defaults;
+---
+<section class={`py-16 ${bg} border-y border-gray-200`}>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-3">{title}</h2>
+      {subtitle && <p class="text-gray-700 max-w-3xl mx-auto">{subtitle}</p>}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-navy">
+      {list.map((i: any, idx: number) => (
+        <div class={`p-8 text-center bg-white hover:bg-navy hover:text-white group transition border-navy ${idx > 0 ? 'md:border-l' : ''} border-b md:border-b-0 last:border-b-0`}>
+          <div class="text-6xl mb-4 text-accent">{i.icon}</div>
+          <h4 class="font-extrabold text-lg mb-2 uppercase tracking-wide group-hover:text-accent">{i.title}</h4>
+          <p class="text-sm leading-relaxed text-gray-700 group-hover:text-gray-200">{i.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

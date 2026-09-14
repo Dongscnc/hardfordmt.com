@@ -1,0 +1,22 @@
+---
+const brands = [
+  { group: 'CNC System', items: 'HEIDENHAIN / FANUC / SIEMENS / SYNTEC / GSK' },
+  { group: 'Ball Screw / Bearing', items: 'THK BALL SCREWS / NSK / NACHI' },
+  { group: 'Linear Scale', items: 'Heidenhain Grating Scale' }
+];
+---
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-700 text-center mb-8">Core Components from World-Class Brands</h2>
+    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Main components sourced from globally trusted manufacturers, ensuring reliable configuration and long service life.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {brands.map(b => (
+        <div class="bg-white p-6 rounded-lg border border-gray-200 text-center">
+          <div class="placeholder-img h-16 mb-3">[ Brand Logos ]</div>
+          <h3 class="font-semibold text-brand-700 mb-2">{b.group}</h3>
+          <p class="text-sm text-gray-600">{b.items}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

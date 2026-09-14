@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import AnchorNav from '../components/AnchorNav.astro';
+import CertificateGrid from '../components/CertificateGrid.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+---
+<BaseLayout title="Certificates & Patents | Hardford">
+  <PageTitle title="Certificates & Patents" breadcrumb={[{label:'Home', href:'/'},{label:'Certificates'}]} />
+  <AnchorNav active="certificates" />
+  <CertificateGrid />
+  <InquiryForm />
+</BaseLayout>

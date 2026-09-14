@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTitle from '../../components/PageTitle.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+import { getProduct, getAllProducts } from '../../data/products';
+
+export function getStaticPaths() {
+  return getAllProducts().map(([model, _]) => ({ params: { model } }));
+}
+
+const { model } = Astro.params;
+const product = getProduct(model!);
+if (!product) return Astro.redirect('/products');
+---
+<BaseLayout title={`${product.model} | ${product.category} | Hardford`}>
+  <PageTitle title={product.model} subtitle={product.category} breadcrumb={[{label:'Home', href:'/'},{label:'Catalog', href:'/products'},{label:product.model}]} />
+
+  <section class="py-12 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-[55%_45%] gap-10 items-center">
+      <div>
+        <span class="inline-block bg-accent text-white px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3">{product.category}</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-navy uppercase tracking-wide mb-4">{product.model}</h2>
+        <p class="text-gray-800 text-lg leading-relaxed mb-6 font-medium">{product.shortDesc}</p>
+        <div class="flex gap-3 flex-wrap">
+          <a href="#inquiry" class="bg-accent hover:bg-accent-dark text-white px-6 py-3 font-extrabold uppercase text-sm tracking-wider border-b-4 border-accent-dark transition">Request a Quote →</a>
+          <a href="/products" class="bg-navy hover:bg-navy-light text-white px-6 py-3 font-extrabold uppercase text-sm tracking-wider border-b-4 border-black transition">All Machines</a>
+        </div>
+      </div>
+      <div class="placeholder-img aspect-[4/3] border-4 border-navy shadow-xl">[ {product.model} Main Image ]</div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-100 border-y border-gray-300">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide mb-4">Overview</h3>
+      <p class="text-gray-800 leading-relaxed text-lg">{product.description}</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide mb-6">Key Features</h3>
+        <ul class="space-y-3 bg-gray-50 border-l-4 border-accent p-5">
+          {product.features.map(f => (
+            <li class="flex items-start gap-3">
+              <span class="text-accent text-xl mt-0.5 font-bold">✓</span>
+              <span class="text-gray-800 font-medium">{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide mb-6">Typical Applications</h3>
+        <div class="flex flex-wrap gap-2">
+          {product.applications.map(a => (
+            <span class="bg-navy text-white px-4 py-2 text-sm font-bold uppercase tracking-wide border-b-2 border-accent">{a}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-100 border-y border-gray-300">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide">Technical Specifications</h3>
+      </div>
+      <div class="bg-white border-2 border-navy shadow-xl overflow-hidden">
+        <table class="w-full">
+          <tbody>
+            {product.specs.map((s, i) => (
+              <tr class={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                <td class="px-5 py-3 font-bold text-navy border-b border-gray-200 w-1/2 uppercase text-sm tracking-wide">{s.label}</td>
+                <td class="px-5 py-3 text-gray-800 border-b border-gray-200 font-medium">{s.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-600 text-center mt-4">* Specifications subject to change. Custom configurations available.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+        <h3 class="text-2xl font-extrabold text-navy uppercase tracking-wide">Gallery</h3>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {['Front View','Side View','Control Panel','Detail'].map(g => (
+          <div class="placeholder-img aspect-[4/3] border-2 border-navy cursor-pointer hover:opacity-90 transition">[ {g} ]</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <InquiryForm />
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+const { companyName = 'Hardford CNC Equipment Co., Ltd.', description } = Astro.props;
+const desc1 = description ?? "Hardford specializes in the manufacturing, sales and service of CNC machine tools.";
+---
+<section class="relative py-20 bg-gray-100 border-y-4 border-accent">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div class="placeholder-img aspect-[4/3] shadow-xl border-4 border-navy">[ Factory Building Image ]</div>
+    <div>
+      <div class="inline-block w-12 h-1 bg-accent mb-3"></div>
+      <h3 class="text-2xl md:text-3xl font-extrabold text-navy uppercase tracking-wide mb-4">{companyName}</h3>
+      <p class="text-gray-800 leading-relaxed mb-4 font-medium">{desc1} 40 years of CNC machine manufacturing experience and a 40-acre modern production facility.</p>
+      <p class="text-gray-700 leading-relaxed mb-4">Imported high-precision master machines enable us to improve manufacturing precision from the very source. We implement strict quality control at every stage to guarantee machining accuracy and operational stability.</p>
+      <p class="text-gray-700 leading-relaxed">We have applied for over 30 patents and certifications. Our products are exported to 56 countries and regions worldwide.</p>
+    </div>
+  </div>
+</section>

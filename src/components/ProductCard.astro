@@ -1,0 +1,13 @@
+---
+const { model, href } = Astro.props;
+---
+<a href={href} class="group block bg-white hover:bg-gray-50 transition relative">
+  <div class="placeholder-img aspect-[4/3] relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+    <div class="absolute bottom-2 left-2 bg-accent text-white text-xs px-2 py-1 font-bold">CNC</div>
+  </div>
+  <div class="p-4 text-center border-t-2 border-navy">
+    <h4 class="font-extrabold text-navy text-lg mb-2 uppercase tracking-wide group-hover:text-accent transition">{model}</h4>
+    <span class="text-accent text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more →</span>
+  </div>
+</a>
